@@ -406,8 +406,15 @@
       })
 
       $('.toggle-sidebar').click(function () {
-        $('.sidebar').toggle('closed');
-        // alert('sidebar')
+        if ($('.sidebar').css('display') == 'none') {
+          $('.sidebar').css('display', 'block')
+          $('main.content').css('padding', '110px 30px 30px 300px')
+        }
+        else {
+          $('.sidebar').css('display', 'none')
+          $('main.content').css('padding', '110px 30px 30px')
+        }
+
       })
 
       $('#menu-link').click(function () {
