@@ -1,86 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exam</title>
-    <link rel="stylesheet" href="./styles/index.css" />
-    <script
-      src="https://kit.fontawesome.com/dd5b607595.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <nav class="sidebar">
-      <div class="top">
-        <span class="logo">
-          <img src="./images/logo.png" alt="logo" />
-          <i id="btn toggle-sidebar" class="fa-solid fa-chevron-right"></i>
-        </span>
-        <div class="profile"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam</title>
+  <link rel="stylesheet" href="./styles/index.css" type="text/css" />
+  <script src="https://kit.fontawesome.com/dd5b607595.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="top">
+    <div class="left">
+      <div class="logo">
+        <img src="./images/logo.png" alt="logo" />
+        <button class="toggle-sidebar"><i class="fa-solid fa-chevron-left"></i></button>
       </div>
-      <ul class="sidebar-menu">
-        <li id="menu-dashboard" class="active">
-          <div class="menu-icon">
-            <i class="fa-solid fa-house-chimney"></i>
-          </div>
-          <span>대시보드</span>
+      <div class="profile">
+        <span class="avatar"></span>
+        <div class="info">
+          <span>김관리님</span>
+          <span class="secondary">대출관리팀</span>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <button class="btn-icon"><i class="fa-regular fa-bell"></i></button>
+      <div class="input-icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input class="input-field" type="text" list="browsers" name="browser" id="browser" placeholder="메뉴 검색">
+        <!-- <datalist id="browsers">
+          <option value="Edge">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist> -->
+      </div>
+      <button class="btn-icon"><i class="fa-solid fa-up-right-from-square"></i></button>
+      <button class="btn-icon"><i class="fa-solid fa-gear"></i></button>
+    </div>
+  </nav>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="./images/logo.png" alt="logo" />
+      <button class="toggle-sidebar"><i class="fa-solid fa-chevron-left"></i></button>
+    </div>
+    <ul class="sidebar-menu">
+      <li id="menu-dashboard" class="item active">
+        <div class="menu-icon">
+          <i class="fa-solid fa-house-chimney"></i>
+        </div>
+        <span>대시보드</span>
+      </li>
+      <li id="menu-member" class="item">
+        <div class="menu-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <span>회원 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <span>영업 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon">
+          <i class="fa-solid fa-comments-dollar"></i>
+        </div>
+        <span>펀딩 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <span>투자 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon"><i class="fa-solid fa-file"></i></div>
+        <span>채권 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon"><i class="fa-solid fa-money-bills"></i></div>
+        <span>지급 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon"><i class="fa-solid fa-plus-minus"></i></div>
+        <span>세무 관리</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon"><i class="fa-solid fa-rotate"></i></div>
+        <span>변경내역/로그 조회</span>
+      </li>
+      <li id="menu-link" class="item">
+        <div class="menu-icon"><i class="fa-regular fa-message"></i></div>
+        <span>전시/게시판 관리</span>
+      </li>
+      <li id="menu-link" class="item toggle-dropdown">
+        <div class="menu-icon"><i class="fa-solid fa-wrench"></i></div>
+        <span>시스템 관리</span>
+        <i class="fa-solid fa-chevron-down dropdown"></i>
+      </li>
+      <ul class="sub-menu">
+        <li class="item">
+          <span></span>
+          메뉴1
         </li>
-        <li id="member-management" class="inactive">
-          <div class="menu-icon">
-            <i class="fa-solid fa-user"></i>
-          </div>
-          <span>회원 관리</span>
+        <li class="item">
+          <span></span>
+          메뉴2
         </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-          <span>영업 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon">
-            <i class="fa-solid fa-comments-dollar"></i>
-          </div>
-          <span>펀딩 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <span>투자 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon"><i class="fa-solid fa-file"></i></div>
-          <span>채권 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon"><i class="fa-solid fa-money-bills"></i></div>
-          <span>지급 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon"><i class="fa-solid fa-plus-minus"></i></div>
-          <span>세무 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon"><i class="fa-solid fa-rotate"></i></div>
-          <span>변경내역/로그 조회</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon"><i class="fa-regular fa-message"></i></div>
-          <span>전시/게시판 관리</span>
-        </li>
-        <li id="menu-member" class="inactive">
-          <div class="menu-icon"><i class="fa-solid fa-wrench"></i></div>
-          <span>시스템 관리</span>
+        <li class="item">
+          <span></span>
+          메뉴3
         </li>
       </ul>
-    </nav>
-    <section class="content">
-      <span>회원 관리</span>
-      <div class="">
+    </ul>
+  </div>
+  <main class="content">
+    <section id="dashboard">
+      <h5>회원 관리</h5>
+      <div class="container">
+        <form action="">
+          <!-- first input -->
+          <div class="form-item">
+            <div class="form-item-row">
+              <div class="form-item-label">
+                <label for="date">
+                  <div class="dot"></div>
+                  <span>가입일</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-item-control">
+              <div class="form-item-input">
+                <span class="form-item-content option">
+                  <input type="radio" id="전체" name="date" value="전체">
+                  <label for="전체">전체</label>
+                </span>
+              </div>
+              <div class="form-item-input">
+                <span class="form-item-content option">
+                  <input type="radio" id="전체" name="date" value="전체">
+                  <label for="전체">전체</label>
+                </span>
+              </div>
+              <div class="form-item-input">
+                <span class="form-item-content option">
+                  <input type="radio" id="전체" name="date" value="전체">
+                  <label for="전체">전체</label>
+                </span>
+              </div>
+              <div class="form-item-input">
+                <span class="form-item-content option">
+                  <input type="radio" id="전체" name="date" value="전체">
+                  <label for="전체">전체</label>
+                </span>
+              </div>
+              <div class="form-item-input">
+                <span class="form-item-content option">
+                  <input type="radio" id="전체" name="date" value="전체">
+                  <label for="전체">전체</label>
+                </span>
+              </div>
+              <div class="form-item-input">
+                <span class="form-item-content option">
+                  <input type="radio" id="전체" name="date" value="전체">
+                  <label for="전체">전체</label>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- end first input -->
+          <!-- second input -->
+          <div class="form-item row">
+            <div class="form-item-row">
+              <div class="form-item-label">
+                <label for="date">
+                  <div class="dot"></div>
+                  <span>채널</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-item-row">
+              <div class="form-item-label">
+                <label for="date">
+                  <div class="dot"></div>
+                  <span>채널</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- end second input -->
+          <!-- third input -->
+          <div class="form-item">
+            <div class="form-item-row">
+              <div class="form-item-label">
+                <label for="date">
+                  <div class="dot"></div>
+                  <span>게시여부</span>
+                </label>
+              </div>
+            </div>
 
+          </div>
+          <!-- end third input -->
+          <!-- forth input -->
+          <div class="form-item">
+            <div class="form-item-row">
+              <div class="form-item-label">
+                <label for="selection">
+                  <div class="dot"></div>
+                  <span>검색</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-item-control">
+              <select name="selection" id="">
+                <option style="display:none">
+                <option value="회원명">회원명</option>
+              </select>
+              <input type="text" placeholder="검색어를 입력해주세요.">
+            </div>
+          </div>
+          <!-- end forth input -->
+        </form>
+      </div>
+      <div class="form-submit">
+        <div></div>
+        <button class="btn-large primary" type="submit" onclick="save">검색</button>
+        <button class="btn-medium white-background" type="submit" onclick="save">초기화</button>
+      </div>
+
+      <!-- section title main container -->
+      <div class="main-container">
+        <div class="title-main-container">
+          <div class="left">
+            <span class="text-bold">회원 목록</span>
+            <span class="text-regular">(총
+              <span>100</span>명 | 승인대기 <span style="color: red; text-decoration: underline;">10</span>명)</span>
+          </div>
+          <div class="right">
+            <select name="selection" id="">
+              <option style="display:none">
+              <option value="회원명">가입일시순</option>
+            </select>
+            <select name="selection" id="">
+              <option style="display:none">
+              <option value="회원명">50개씩 보기</option>
+            </select>
+            <button disabled><span>엑셀 다운로드</span></button>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <!-- end title main container -->
+
+      <!-- section table -->
+      <div class="table-header">
+        <span>선택한 0명 회원</span>
+        <select name="selection" id="">
+          <option style="display:none">
+          <option value="회원명">승인상태 변경</option>
+        </select>
+        <button>저장</button>
+      </div>
+      <table class="table-content">
+        <colgroup>
+          <col class="table-selection-col" style="width: 37px;">
+          <col style="width: 54px;">
+          <col style="width: 100px;">
+          <col style="width: 149px;">
+          <col style="width: 130px;">
+          <col style="width: 200px;">
+          <col style="width: 90px;">
+          <col style="width: 88px;">
+          <col style="width: 59px;">
+          <col style="width: 79px;">
+          <col style="width: 140px;">
+        </colgroup>
+        <thead>
+          <tr id="title">
+            <th class="table-header-cell"><input type="checkbox" name="no" id=""></td>
+            </th>
+            <th class="table-header-cell">NO</th>
+            <th class="table-header-cell">회원번호</th>
+            <th class="table-header-cell">회원명/법인명</th>
+            <th class="table-header-cell">휴대폰 번호</th>
+            <th class="table-header-cell">이메일ID</th>
+            <th class="table-header-cell">승인여부</th>
+            <th class="table-header-cell">휴면상태</th>
+            <th class="table-header-cell">구분</th>
+            <th class="table-header-cell">유형</th>
+            <th class="table-header-cell">GUID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="row-1">
+            <td class="table-cell"><input type="checkbox" name="no" id=""></td>
+            <td class="table-cell">1</td>
+            <td class="table-cell">Abc123</td>
+            <td class="table-cell">김마리</td>
+            <td class="table-cell">010-1234-5678</td>
+            <td class="table-cell">aaaaaaaabc@naver.com</td>
+            <td class="table-cell" class="accept-status"><span>승인완료</span></td>
+            <td class="table-cell">정상</td>
+            <td class="table-cell">투자</td>
+            <td class="table-cell">일반개인</td>
+            <td class="table-cell">U1JtXgAj5Q72Wn</td>
+          </tr>
+          <tr>
+            <td class="table-cell"><input type="checkbox" name="no" id=""></td>
+            <td class="table-cell">2</td>
+            <td class="table-cell">Abc123</td>
+            <td class="table-cell">김마리</td>
+            <td class="table-cell">010-1234-5678</td>
+            <td class="table-cell">aaaaaaaabc@naver.com</td>
+            <td class="table-cell" class="pending-status"><span>승인대기</span></td>
+            <td class="table-cell">정상</td>
+            <td class="table-cell">투자</td>
+            <td class="table-cell">개인</td>
+            <td class="table-cell">U1JtXgAj5Q72Wn</td>
+          </tr>
+          <tr>
+            <td class="table-cell"><input type="checkbox" name="no" id=""></td>
+            <td class="table-cell">3</td>
+            <td class="table-cell">Abc123</td>
+            <td class="table-cell">김마리</td>
+            <td class="table-cell">010-1234-5678</td>
+            <td class="table-cell">aaaaaaaabc@naver.com</td>
+            <td class="table-cell" class="rejected-status"><span>승인거절</span></td>
+            <td class="table-cell">정상</td>
+            <td class="table-cell">투자</td>
+            <td class="table-cell">일반개인</td>
+            <td class="table-cell">U1JtXgAj5Q72Wn</td>
+          </tr>
+          <tr>
+            <td class="table-cell"><input type="checkbox" name="no" id=""></td>
+            <td class="table-cell">4</td>
+            <td class="table-cell">Abc123</td>
+            <td class="table-cell">김마리</td>
+            <td class="table-cell">010-1234-5678</td>
+            <td class="table-cell">aaaaaaaabc@naver.com</td>
+            <td class="table-cell" class="pending-status"><span>승인대기</span></td>
+            <td class="table-cell">정상</td>
+            <td class="table-cell">투자</td>
+            <td class="table-cell">개인</td>
+            <td class="table-cell">U1JtXgAj5Q72Wn</td>
+          </tr>
+          <tr>
+            <td class="table-cell"><input type="checkbox" name="no" id=""></td>
+            <td class="table-cell">5</td>
+            <td class="table-cell">Abc123</td>
+            <td class="table-cell">김마리</td>
+            <td class="table-cell">010-1234-5678</td>
+            <td class="table-cell">aaaaaaaabc@naver.com</td>
+            <td class="table-cell" class="pending-status"><span>승인대기</span></td>
+            <td class="table-cell">정상</td>
+            <td class="table-cell">투자</td>
+            <td class="table-cell">일반개인</td>
+            <td class="table-cell">U1JtXgAj5Q72Wn</td>
+          </tr>
+          <tr>
+            <td class="table-cell"><input type="checkbox" name="no" id=""></td>
+            <td class="table-cell">6</td>
+            <td class="table-cell">Abc123</td>
+            <td class="table-cell">김마리</td>
+            <td class="table-cell">010-1234-5678</td>
+            <td class="table-cell">aaaaaaaabc@naver.com</td>
+            <td class="table-cell" class="pending-status"><span>승인대기</span></td>
+            <td class="table-cell">정상</td>
+            <td class="table-cell">투자</td>
+            <td class="table-cell">개인</td>
+            <td class="table-cell">U1JtXgAj5Q72Wn</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button class="icon"><span><i class="fa-solid fa-angles-left"></i></span></button>
+        <button class="icon"><span><i class="fa-solid fa-chevron-left"></i></span></button>
+        <button class="page"><span>1</span></button>
+        <button class="icon"><span><i class="fa-solid fa-chevron-right"></i></span></button>
+        <button class="icon"><span><i class="fa-solid fa-angles-right"></i></span></button>
+      </div>
+      <!-- end section table -->
+    </section>
+    <section id="member-management">
+    </section>
+    <section id="not-found">
+      <div style="margin: 0 auto">
+        <h2>404
+          This page could not be found.
+        </h2>
       </div>
     </section>
-  </body>
+  </main>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.toggle-dropdown').click(function () {
+        $(".sub-menu").toggle();
+      })
+
+      $('.toggle-sidebar').click(function () {
+        $('.sidebar').toggle('closed');
+        // alert('sidebar')
+      })
+
+      $('#menu-link').click(function () {
+        $('#not-found').css('display', 'block')
+        $('#menu-dashboard').removeClass('active')
+        $('#dashboard').css('display', 'none')
+        $('#menu-member').removeClass('active')
+        $('#member-management').css('display', 'none')
+      })
+
+      $('#menu-member').click(function () {
+        $('#not-found').css('display', 'none')
+        $('#dashboard').css('display', 'none')
+        $('#menu-dashboard').removeClass('active')
+        $('#menu-member').addClass('active')
+        $('#member-management').css('display', 'block')
+      })
+
+      $('#menu-dashboard').click(function () {
+        $('#not-found').css('display', 'none')
+        $('#dashboard').css('display', 'block')
+        $('#menu-dashboard').addClass('active')
+        $('#menu-member').removeClass('active')
+        $('#member-management').css('display', 'none')
+      })
+    })
+
+
+
+  </script>
+</body>
+
 </html>

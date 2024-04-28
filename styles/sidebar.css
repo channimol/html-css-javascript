@@ -1,0 +1,124 @@
+.sidebar {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  width: 268px;
+  margin-top: 20px;
+  padding-left: 22px;
+  padding-right: 10px;
+  padding-top: 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-color: var(--primary-color);
+  position: fixed;
+  transition: transform .5s ease-in-out;
+}
+
+/* .sidebar .collapse {
+  flex-basis: 0;
+  width: 10px;
+  transform: translateX(-98%);
+} */
+
+span.logo img {
+  width: 159px;
+  height: 29px;
+  margin-right: 1px;
+}
+
+ul.sidebar-menu,
+ul.sub-menu {
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+ul.sidebar-menu {
+  padding-top: 5px;
+}
+
+/* menu active */
+.sidebar-menu li.item.active {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 16px 0 rgba(97, 111, 112, 0.16);
+  gap: 12px;
+}
+
+.sidebar-menu li.item.active .menu-icon {
+  background-color: var(--primary-color);
+}
+
+.sidebar-menu li.item.active .menu-icon i {
+  color: white;
+}
+
+.sidebar-menu li.item.active span {
+  color: var(--primary-color);
+}
+
+/* end of active menu */
+
+/* inactive menu */
+.sidebar-menu li.item {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  padding-left: 16px;
+  gap: 12px;
+  color: var(--inactive-text);
+}
+
+.sidebar-menu li.item .menu-icon {
+  background-color: var(--background-color);
+  box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 3.5px 5.5px 0 rgba(41, 57, 88, .16);
+  color: var(--light-primary-color);
+}
+
+.sidebar-menu li.item span,
+.sidebar-menu li.item {
+  color: var(--text-gray);
+}
+
+.sidebar-menu li.item .dropdown {
+  position: absolute;
+  right: 0;
+  translate: 0.3s ease;
+}
+
+/* end of inactive menu */
+
+/* sub menu */
+.sub-menu {
+  display: none;
+}
+
+/* .sub-menu .display {
+  display: block;
+} */
+
+.sub-menu li.item span {
+  height: 50px;
+  width: 50px;
+}
+
+.sub-menu li.item {
+  color: var(--text-gray);
+}
+
+/* end of sub menu */
+
+.menu-icon {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 30px;
+  font-size: 12px;
+}
